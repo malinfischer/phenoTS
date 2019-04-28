@@ -20,7 +20,7 @@ dwd_plot_2_ts(dwd_data_1, dwd_data_2, stat_ids, title, subtitle, lab_1,
 
 \item{lab_1}{legend label data set 1 (optional).}
 
-\item{lab_2}{legend label daa set 2 (optional).}
+\item{lab_2}{legend label data set 2 (optional).}
 }
 \value{
 The resulting time-series ggplot.

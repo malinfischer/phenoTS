@@ -17,6 +17,12 @@
 
 dwd_stations_shp <- function(dwd_data,out_dir){
 
+  # filter only one entry per station
+  dwd_data <- dplyr::distinct(dwd_data,stat_id,.keep_all=TRUE)
+
+  # select only station-relevant columns
+  dwd_data <- dplyr::select(dwd_data,stat_id,stat_name,alt,lsc_gr_id,lsc_gr,lsc,close_date,state,lon,lat)
+
   ## convert tibble to shape file
 
   # define coordinates
@@ -26,6 +32,6 @@ dwd_stations_shp <- function(dwd_data,out_dir){
   sp::proj4string(dwd_data) <- sp::CRS("+proj=longlat +datum=WGS84")
 
   ## write shape file
-  writeOGR(dwd_data,out_dir,"dwd_stations",driver="ESRI Shapefile")
+  writeOGR(dwd_data,out_dir,"dwd_stations",driver="ESRI Shapefile",encoding="UTF-8")
 
 }
