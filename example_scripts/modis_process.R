@@ -4,6 +4,7 @@
 # This script shows how MODIS NDVI data can be processed using the MODIStsp package and manual R functions.
 # MODIStsp: calibration etc., see http://ropensci.github.io/MODIStsp/index.html.
 # Manual processing in R: crop to AOI, further NDVI value processing, crop to CLC forest classes, plotting.
+# + Creating one raster stack for each period seperately.
 #######################################################
 #######################################################
 
@@ -87,4 +88,79 @@ ts_ndvi <- mask(ts_ndvi,clc)
 plot(ts_ndvi[[1]])
 plot(aoi,add=T)
 plot(clc,add=T)
+
+
+### Calculate pixelwise yearly mean NDVI of each period ###
+# necessary for subsequent analysis using phenoTS functions
+# raster stack with mixed up observation periods (3 layers per observation period and year) needs to be seperated
+# result: one raster stack for each observation period with pixelswise yearly mean NDVI
+
+# initialize layer name vectors
+l_names <- character(0)   # for stack with both oeriods
+l_names_1 <- character(0) # for stack with 1st period
+l_names_2 <- character(0) # for stack with 2nd period
+
+counter <- 1 # for assigning layer names
+
+# iterate through stack in steps of 3 (= number of scenes per single observation)
+for(i in seq(1,nlayers(ts_ndvi),by=3)){
+
+  # calculate mean NDVI of 3 layers each (= one observation period within one year)
+  tmp <- overlay(ts_ndvi[[i:(i+2)]],fun=function(x,y,z){(x+y+z)/3},unstack=TRUE)
+
+  # stack of all periods (2 each year)
+  if(i==1){ # first scene initialization
+    ndvi_m_px <- tmp
+    ndvi_m_px_1 <- tmp
+  }else{
+    ndvi_m_px <- stack(ndvi_m_px,tmp)
+  }
+
+  # split into 2 RasterStacks - one for each period (1 - April/2 - July) and create layer names
+  if(i%%2==1){ # 1st period
+
+    if(i>1){ndvi_m_px_1 <- stack(ndvi_m_px_1,tmp)} # stack 1st period only
+
+    # define layer names
+    l_name <- paste0("mean_NDVI_",toString(1999+counter-(counter-1)/2),"_",toString(1)) # for complete stack
+    l_names_1[counter-(counter-1)/2] <- paste0("mean_NDVI_",toString(1999+counter-(counter-1)/2),"_",toString(1)) # for stack 1st period
+
+  } else { # 2nd period
+
+    if(i==4){
+      ndvi_m_px_2 <- tmp
+    }else{
+      ndvi_m_px_2 <- stack(ndvi_m_px_2,tmp) # stack 2nd period only
+    }
+
+    # define layer names
+    l_name <- paste0("mean_NDVI_",toString(2000+counter-counter/2-1),"_",toString(2)) # for complete stack
+    l_names_2[counter-counter/2] <- paste0("mean_NDVI_",toString(2000+counter-counter/2-1),"_",toString(2)) # for stack 2nd period
+
+  }
+
+  l_names[counter] <- l_name
+  counter <- counter + 1
+
+} # end for through stack
+
+# assign layer names to stacks
+names(ndvi_m_px) <- l_names
+names(ndvi_m_px_1) <- l_names_1
+names(ndvi_m_px_2) <- l_names_2
+
+
+### save stacks ###
+# so they can be analyzed using phenoTS-functions subsequently
+
+# set directory
+setwd("C:/User/.../my_directory")
+
+# save files as GeoTiff
+writeRaster(ndvi_m_px,"ndvi_m_px.tif",format="GTiff")
+writeRaster(ndvi_m_px_1,"ndvi_m_px_1.tif",format="GTiff")
+writeRaster(ndvi_m_px_2,"ndvi_m_px_2.tif",format="GTiff")
+
+### finished processing - ready to analyze ###
+
 
