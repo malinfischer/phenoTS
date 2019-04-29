@@ -14,9 +14,9 @@ knitr::opts_chunk$set(
 ```
 # phenoTS
 
-> An R package for phenological time-series analyses
+> An R package for phenological time-series analyses 
 
-This package simplifies time-series analyses based on different types of phenology data. Various functions and scripts to download, process and analyze data from two entirely different data sets are provided: field records of the German National Meteorological Service's (DWD) observation network and raster remote sensing data (especially MODIS NDVI, but with generalized functions).
+This package simplifies time-series analyses based on different types of phenology data. Various functions and scripts to download, process and analyze data from two entirely different data sets are provided: field records of the German National Meteorological Service's (DWD) observation network and raster remote sensing data (especially MODIS NDVI, but with generalized functions). 
 
 ### Idea
 
@@ -39,4 +39,7 @@ Have a look at the provided example scripts to get an overview on how to use thi
 
 For a first impression, see this example of a time-series analysis result plot for two DWD stations in the Bavarian Forest:
 
-![alt text](example_scripts/result_plots/dwd_modis_ex_results.png)
+![phenoTS example](example_scripts/result_plots/dwd_modis_ex_results.png)
+
+_____________________________________
+  ![phenoTS logo](example_scripts/phenoTS_hex.png){width=100px} Author: Malin Sophie Fischer

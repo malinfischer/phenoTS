@@ -25,4 +25,8 @@ Have a look at the provided example scripts to get an overview on how to use thi
 
 For a first impression, see this example of a time-series analysis result plot for two DWD stations in the Bavarian Forest:
 
-![alt text](example_scripts/result_plots/dwd_modis_ex_results.png)
+![phenoTS example](example_scripts/result_plots/dwd_modis_ex_results.png)
+
+------------------------------------------------------------------------
+
+<img src="example_scripts/phenoTS_hex.png" alt="phenoTS logo" width="100" /> Author: Malin Sophie Fischer
