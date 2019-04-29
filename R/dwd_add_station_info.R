@@ -1,8 +1,8 @@
 #' @title Add station info to data file
 #'
-#' @description This function allows you to add station information to an observation data file.
+#' @description This function allows you to add station information to an observation data tibble. The matching DWD meta file containing relevant station information is processed and joined.
 #'
-#' @param dwd_data tibble containing DWD observation data to which station information shall be added = return of function dwd_read(dir).
+#' @param dwd_data tibble containing DWD observation data to which station information shall be added = return of \code{\link{dwd_read}}.
 #'
 #' @return A tidyverse tibble containing the merged observation and station data.
 #'
@@ -11,13 +11,16 @@
 #' @export
 #'
 #' @examples
-#' # test example
+#' # read DWD file into R
+#' my_file <- dwd_read(my_dir) # result: tidyverse tibble
 #'
+#' # add station information
+#' my_file <- dwd_add_station_info(my_file)
 #'
 
 dwd_add_station_info <- function(dwd_data){
 
-  ### Step 1: Create full path to station information file based on file name and location
+  ### Step 1: Create full path to station information file based on file name and location ###
 
   # get original file directory from dir column
   dir <- dwd_data$dir[1]
@@ -40,7 +43,8 @@ dwd_add_station_info <- function(dwd_data){
 
   path_stat_info <- paste0(dir_info,name_info)
 
-  ### Step 2: read station info file
+
+  ### Step 2: read station info file ###
   # based on function dwd_read_station_info
   station_info <- dwd_read_station_info(path_stat_info)
 

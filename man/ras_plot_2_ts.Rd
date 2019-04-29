@@ -4,8 +4,7 @@
 \alias{ras_plot_2_ts}
 \title{Plot one time-series per scene or point for two data sets}
 \usage{
-ras_plot_2_ts(ras_data_1, ras_data_2, title, subtitle, x_lab, y_lab, lab_1,
-  lab_2)
+ras_plot_2_ts(ras_data_1, ras_data_2, title, x_lab, y_lab, lab_1, lab_2)
 }
 \arguments{
 \item{ras_data_1}{tibble 1 containing mean raster values which shall be plotted, e.g. result of ras_calc_mean() or ras_calc_mean_point().}
@@ -13,8 +12,6 @@ ras_plot_2_ts(ras_data_1, ras_data_2, title, subtitle, x_lab, y_lab, lab_1,
 \item{ras_data_2}{tibble 2 containing mean raster values which shall be plotted.}
 
 \item{title}{plot title (optional).}
-
-\item{subtitle}{plot subtitle (optional).}
 
 \item{x_lab}{x-axis label (optional).}
 

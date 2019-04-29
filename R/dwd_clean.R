@@ -1,8 +1,8 @@
-#' @title Clean relevant observation data
+#' @title Clean observation data
 #'
 #' @description This function allows you to clean observation data which is already joined with station and phase information by filtering relevant information. Duplicates are removed and irrelevant columns as well as incomplete or low-quality (based on quality flags) observations are deleted.
 #'
-#' @param dwd_data tibble containing DWD observation data to which station and phase information has been added already = return of functions dwd_add_phase/station_info(dir) or dwd_join_files(dwd_data_list).
+#' @param dwd_data tibble containing DWD observation data to which station and phase information has been added already = return of \code{\link{dwd_add_phase_info}} and/or \code{\link{dwd_add_station_info}}.
 #'
 #' @return A tidyverse tibble containing the cleaned observation data.
 #'
@@ -11,8 +11,17 @@
 #' @export
 #'
 #' @examples
-#' # test example
+#' # read file into R
+#' my_file <- dwd_read(dir_tmp) # result: tidyverse tibble
 #'
+#' # add phase information from matching phase meta file
+#' my_file <- dwd_add_phase_info(my_file)
+#'
+#' # add station information from matching station meta file
+#' my_file <- dwd_add_station_info(my_file)
+#'
+#' # clean observation data
+#' my_file <- dwd_clean(my_file)
 #'
 
 dwd_clean <- function(dwd_data){

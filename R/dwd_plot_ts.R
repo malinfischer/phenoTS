@@ -1,6 +1,6 @@
 #' @title Plot one time-series per DWD station
 #'
-#' @description This function allows you to plot one time-series per DWD station for an input DWD data set. Specific stations can be filtered beforehand. For other filter operations use ggplot2:filter() to create customized data set. Furthermore, LOESS smoothening (local polynomial regression fitting) is applied.
+#' @description This function allows you to plot one time-series per DWD station for an input DWD data set. Specific stations can be filtered beforehand. Furthermore, LOESS smoothening (local polynomial regression fitting) is applied.
 #'
 #' @param dwd_data a tibble containing DWD observation data (pre-processed, with station + phase information) which shall be plotted.
 #' @param stat_ids station ID(s) of station(s) which shall be plotted (optional). If empty, all stations are plotted.
@@ -38,10 +38,10 @@ dwd_plot_ts <- function(dwd_data,stat_ids,title){
 
   # create time-series plot
   my_plot <- ggplot2::ggplot(data=dwd_data, aes(x=ref_year,y=entry_doy))+
-              geom_line(color="springgreen4",size=1)+
-              geom_point(color="springgreen4",size=2)+
+              geom_line(color="springgreen4",size=0.5)+
+              geom_point(color="springgreen4",size=1)+
               labs(x="Year",y="DOY phase entry",title=title)+
-              stat_smooth(color = "tan4", fill = "tan",method = "loess")+ # smoothening - LOESS local polynomial regression fitting
+              stat_smooth(color = "tan4", fill = "tan",method = "loess",size=0.5)+ # smoothening - LOESS local polynomial regression fitting
               facet_grid(stat_name ~.) # split plots by station and show station name
 
   # show plot in new window

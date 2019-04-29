@@ -4,14 +4,12 @@
 \alias{ras_plot_ts}
 \title{Plot one time-series per scene or point}
 \usage{
-ras_plot_ts(ras_data, title, subtitle, x_lab, y_lab)
+ras_plot_ts(ras_data, title, x_lab, y_lab)
 }
 \arguments{
 \item{ras_data}{a tibble containing mean raster values which shall be plotted, e.g. result of ras_calc_mean() or ras_calc_mean_point().}
 
 \item{title}{plot title (optional).}
-
-\item{subtitle}{plot subtitle (optional).}
 
 \item{x_lab}{x-axis label (optional).}
 

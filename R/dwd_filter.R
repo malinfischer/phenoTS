@@ -2,14 +2,14 @@
 #'
 #' @description This function allows you to filter observation data relevant to your time-series analysis. A single phase and observation period is selected. Observations of stations closed out of or within this period are deleted. All observations of a station with less than a selected number of observations is available are removed.
 #'
-#' @param dwd_data_list a list containing all observation data tibbles which shall be joined (returns of dwd_read(dir) or dwd_add_phase/station_info(dir)).
+#' @param dwd_data tibble containing processed DWD observation data which shall be filtered (return of \code{\link{dwd_process}}).
 #' @param dwd_phase_id phase_id of selected phase according to DWD (not BBCH!) definition.
 #' @param obs_start start of observation period (year).
 #' @param obs_end end of observation period (year, included).
-#' @param obs_min minimum number of available observations = years.
+#' @param obs_min minimum number of available observations per station.
 #'
 #'
-#' @return A tidyverse tibble containing all joined observation data.
+#' @return A tidyverse tibble containing the filtered observation data.
 #'
 #' @import tidyverse
 #' @importFrom lubridate year
@@ -17,8 +17,21 @@
 #' @export
 #'
 #' @examples
-#' # test example
+#' ## set directory where data files shall be saved
+#' my_dir <- "C:/Users/.../my_folder"
 #'
+#' ## download
+#' # both data + meta files
+#' dwd_download("RBU",1900,2019,"JMSM",my_dir)
+#'
+#' ## create directory to folder containing files to be processed
+#' folder_dir <- paste0(my_dir, "/RBU") # modify abbreviation accordingly
+#'
+#' ## process and join all files in folder
+#' rbu_data <- dwd_process(dir)
+#'
+#' ## filter time-series relevant data
+#' rbu_data <- dwd_filter(rbu_data, dwd_phase_id=4, obs_start=1950, obs_end=2018, obs_min=25)
 #'
 
 dwd_filter <- function(dwd_data, dwd_phase_id, obs_start, obs_end, obs_min){
@@ -35,11 +48,20 @@ dwd_filter <- function(dwd_data, dwd_phase_id, obs_start, obs_end, obs_min){
 
   # delete observations of a station when less than selected number of years (obs_min) are available
   tly <- dplyr::group_by(filtered,stat_id)
-  tly <- dplyr::tally(tly) # count observations per station
-  filtered <- dplyr::left_join(filtered,tly,by="stat_id") # combine with observation table
-  filtered <- dplyr::filter(filtered,n>=obs_min) # delete rows with too few observations
-  dplyr::rename(filtered,"n_obs"="n") # rename new column with number of observations
 
+  # count observations per station
+  tly <- dplyr::tally(tly)
+
+  # combine with observation table
+  filtered <- dplyr::left_join(filtered,tly,by="stat_id")
+
+  # delete rows with too few observations
+  filtered <- dplyr::filter(filtered,n>=obs_min)
+
+  # rename new column with number of observations
+  dplyr::rename(filtered,"n_obs"="n")
+
+  # return filtered result
   return(filtered)
 
 }

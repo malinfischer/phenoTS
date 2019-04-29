@@ -1,12 +1,13 @@
-#' @title DWD phenology data download
+#' @title Download DWD phenology data
 #'
-#' @description This function allows you to download phenology in-situ observation data provided by the German Meteorological Service (DWD).
+#' @description This function allows you to download phenology in-situ observation data provided by the German Meteorological Service (DWD). \cr
+#' Data source: \url{ftp://ftp-cdc.dwd.de/pub/CDC/observations_germany/phenology/}
 #'
 #' @param crops crop abbreviation(s) - possible to chose multiple crops, use c("crop1","crop2",...) then.
-#' @param start start of observation (year).
-#' @param end end of observation (year).
-#' @param report reporter type, (Jahresmelder="JM", Sofortmelder="SM", both="JMSM").
-#' @param dir_out directory were downloaded files are saved (sub-folders are created within for each crop).
+#' @param start start of observation period (year).
+#' @param end end of observation period (year).
+#' @param report reporter type (Jahresmelder/annual reporters="JM", Sofortmelder/immediate reporters="SM", both="JMSM").
+#' @param dir_out directory downloaded files shall be saved (sub-folders are created within for each crop).
 #'
 #' @import tidyverse
 #' @import RCurl
@@ -14,7 +15,16 @@
 #' @export
 #'
 #' @examples
-#' # test example
+#' ## set directory where data files shall be saved
+#' my_dir <- "C:/Users/.../my_folder"
+#'
+#' ## check available crops  and their abbreviations
+#' dwd_crop_list()
+#'
+#' ## download
+#' # both data + meta files
+#' dwd_download("RBU",1900,2019,"JMSM",my_dir)
+#' # crop: Rotbuche (European beech), max. observation period, annual + immediate reporters
 #'
 
 # input: list of crops, start + end of observation (year), SM and/or JM, output folder

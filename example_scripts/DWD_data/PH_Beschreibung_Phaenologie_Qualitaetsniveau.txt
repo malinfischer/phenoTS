@@ -1,0 +1,5 @@
+Qualitaetsniveau;Beschreibung                                                                                            ;eor;                                                                          
+               1;nur formale Prüfung beim Entschlüsseln und Laden                                                        ;eor;                                                                          
+               7;in ROUTINE geprüft, aber keine Korrekturen (z.B. RR_UN vor Korrektur)                                   ;eor;                                                                          
+              10;in ROUTINE geprüft, routinemäßige Korrektur beendet                                                     ;eor;                                                                          
+

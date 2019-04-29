@@ -2,25 +2,35 @@
 % Please edit documentation in R/dwd_download.R
 \name{dwd_download}
 \alias{dwd_download}
-\title{DWD phenology data download}
+\title{Download DWD phenology data}
 \usage{
 dwd_download(crops, start, end, report, dir_out)
 }
 \arguments{
 \item{crops}{crop abbreviation(s) - possible to chose multiple crops, use c("crop1","crop2",...) then.}
 
-\item{start}{start of observation (year).}
+\item{start}{start of observation period (year).}
 
-\item{end}{end of observation (year).}
+\item{end}{end of observation period (year).}
 
-\item{report}{reporter type, (Jahresmelder="JM", Sofortmelder="SM", both="JMSM").}
+\item{report}{reporter type (Jahresmelder/annual reporters="JM", Sofortmelder/immediate reporters="SM", both="JMSM").}
 
-\item{dir_out}{directory were downloaded files are saved (sub-folders are created within for each crop).}
+\item{dir_out}{directory downloaded files shall be saved (sub-folders are created within for each crop).}
 }
 \description{
-This function allows you to download phenology in-situ observation data provided by the German Meteorological Service (DWD).
+This function allows you to download phenology in-situ observation data provided by the German Meteorological Service (DWD). \cr
+Data source: \url{ftp://ftp-cdc.dwd.de/pub/CDC/observations_germany/phenology/}
 }
 \examples{
-# test example
+## set directory where data files shall be saved
+my_dir <- "C:/Users/.../my_folder"
+
+## check available crops  and their abbreviations
+dwd_crop_list()
+
+## download
+# both data + meta files
+dwd_download("RBU",1900,2019,"JMSM",my_dir)
+# crop: Rotbuche (European beech), max. observation period, annual + immediate reporters
 
 }

@@ -4,8 +4,7 @@
 \alias{dwd_plot_2_ts}
 \title{Plot one time-series per DWD station for two crops.}
 \usage{
-dwd_plot_2_ts(dwd_data_1, dwd_data_2, stat_ids, title, subtitle, lab_1,
-  lab_2)
+dwd_plot_2_ts(dwd_data_1, dwd_data_2, stat_ids, title, lab_1, lab_2)
 }
 \arguments{
 \item{dwd_data_1}{tibble 1 containing DWD observation data (pre-processed, with station + phase information) which shall be plotted.}
@@ -15,8 +14,6 @@ dwd_plot_2_ts(dwd_data_1, dwd_data_2, stat_ids, title, subtitle, lab_1,
 \item{stat_ids}{station ID(s) of station(s) which shall be plotted (optional). If empty, all stations are plotted.}
 
 \item{title}{plot title (optional).}
-
-\item{subtitle}{plot subtitle (optional).}
 
 \item{lab_1}{legend label data set 1 (optional).}
 

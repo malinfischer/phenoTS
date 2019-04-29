@@ -67,7 +67,7 @@ dwd_plot_2_ts <- function(dwd_data_1,dwd_data_2,stat_ids,title,lab_1,lab_2){
     stat_smooth(data=dwd_data_2,aes(x=ref_year,y=entry_doy),color = "red3", fill = "coral",method = "loess",size=0.5)+ # smoothening - LOESS local polynomial regression fitting
     facet_grid(stat_name ~.)+ # split plots by station and show station name
     theme(legend.position="top")+ # add legend on top of plot
-    scale_color_manual(values=c("springgreen4","darkorange"),name="",labels = c(lab_1,lab_2))+ # legend labels
+    scale_color_manual(values=c("darkorange","springgreen4"),name="",labels = c(lab_2,lab_1))+ # legend labels
 
   # show plot in new window
   x11()

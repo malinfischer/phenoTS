@@ -1,18 +1,14 @@
-#' @title Reading DWD phenology file into R
+#' @title Read DWD phenology file into R
 #'
 #' @description This function allows you to import a DWD phenology file into R as a tidyverse tibble.
 #'
-#' @param dir directory where file that shall be imported is located, including full file name.
+#' @param dir directory where the file that shall be imported is located, including full file name.
 #'
-#' @return A tidyverse tibble containing the DWD phenology file data.
+#' @return A tidyverse tibble containing the DWD phenology data.
 #'
 #' @import tidyverse
 #'
 #' @export
-#'
-#' @examples
-#' # test example
-#'
 #'
 
 dwd_read <- function(dir){

@@ -1,0 +1,9 @@
+Qualiaetsbyte;Beschreibung                                                ;eor;                                                                                                                         
+            0;Feldwert ungeprüft                                          ;eor;                                                                                                                         
+            1;Feldwert nicht beanstandet                                  ;eor;                                                                                                                         
+            2;Feldwert korrigiert                                         ;eor;                                                                                                                         
+            3;Feldwert trotz Beanstandung bestätigt                       ;eor;                                                                                                                         
+            5;Feldwert zweifelhaft                                        ;eor;                                                                                                                         
+            7;ungültiges Eintrittsdatum; z.B. 31. April, wird automatisch ;eor;                                                                                                                         
+            8;Feldwert falsch                                             ;eor;                                                                                                                         
+

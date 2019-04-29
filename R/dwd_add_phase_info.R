@@ -1,8 +1,8 @@
 #' @title Add phase info to data file
 #'
-#' @description This function allows you to add phenological phase information to an observation data file.
-#'
-#' @param dwd_data a tibble containing DWD observation data to which station information shall be added = return of function dwd_read(dir).
+#' @description This function allows you to add phenological phase information to an observation data file. The matching DWD meta file containing relevant phase information is processed and joined.
+#
+#' @param dwd_data a tibble containing DWD observation data to which station information shall be added = return of \code{\link{dwd_read}}.
 #'
 #' @return A tidyverse tibble containing the merged observation and phase data.
 #'
@@ -11,8 +11,11 @@
 #' @export
 #'
 #' @examples
-#' # test example
+#' # read DWD file into R
+#' my_file <- dwd_read(my_dir) # result: tidyverse tibble
 #'
+#' # add phase information
+#' my_file <- dwd_add_phase_info(my_file)
 #'
 
 dwd_add_phase_info <- function(dwd_data){

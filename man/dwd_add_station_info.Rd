@@ -7,16 +7,19 @@
 dwd_add_station_info(dwd_data)
 }
 \arguments{
-\item{dwd_data}{tibble containing DWD observation data to which station information shall be added = return of function dwd_read(dir).}
+\item{dwd_data}{tibble containing DWD observation data to which station information shall be added = return of \code{\link{dwd_read}}.}
 }
 \value{
 A tidyverse tibble containing the merged observation and station data.
 }
 \description{
-This function allows you to add station information to an observation data file.
+This function allows you to add station information to an observation data tibble. The matching DWD meta file containing relevant station information is processed and joined.
 }
 \examples{
-# test example
+# read DWD file into R
+my_file <- dwd_read(my_dir) # result: tidyverse tibble
 
+# add station information
+my_file <- dwd_add_station_info(my_file)
 
 }

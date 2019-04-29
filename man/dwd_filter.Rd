@@ -7,24 +7,37 @@
 dwd_filter(dwd_data, dwd_phase_id, obs_start, obs_end, obs_min)
 }
 \arguments{
+\item{dwd_data}{tibble containing processed DWD observation data which shall be filtered (return of \code{\link{dwd_process}}).}
+
 \item{dwd_phase_id}{phase_id of selected phase according to DWD (not BBCH!) definition.}
 
 \item{obs_start}{start of observation period (year).}
 
 \item{obs_end}{end of observation period (year, included).}
 
-\item{obs_min}{minimum number of available observations = years.}
-
-\item{dwd_data_list}{a list containing all observation data tibbles which shall be joined (returns of dwd_read(dir) or dwd_add_phase/station_info(dir)).}
+\item{obs_min}{minimum number of available observations per station.}
 }
 \value{
-A tidyverse tibble containing all joined observation data.
+A tidyverse tibble containing the filtered observation data.
 }
 \description{
 This function allows you to filter observation data relevant to your time-series analysis. A single phase and observation period is selected. Observations of stations closed out of or within this period are deleted. All observations of a station with less than a selected number of observations is available are removed.
 }
 \examples{
-# test example
+## set directory where data files shall be saved
+my_dir <- "C:/Users/.../my_folder"
 
+## download
+# both data + meta files
+dwd_download("RBU",1900,2019,"JMSM",my_dir)
+
+## create directory to folder containing files to be processed
+folder_dir <- paste0(my_dir, "/RBU") # modify abbreviation accordingly
+
+## process and join all files in folder
+rbu_data <- dwd_process(dir)
+
+## filter time-series relevant data
+rbu_data <- dwd_filter(rbu_data, dwd_phase_id=4, obs_start=1950, obs_end=2018, obs_min=25)
 
 }

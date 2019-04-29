@@ -7,7 +7,7 @@
 dwd_join_files(dwd_data_list)
 }
 \arguments{
-\item{dwd_data_list}{a list containing all observation data tibbles which shall be joined (returns of dwd_read(dir) or dwd_add_phase/station_info(dir)).}
+\item{dwd_data_list}{a list containing all observation data tibbles which shall be joined (returns of \code{\link{dwd_read}} or \code{\link{dwd_process}}).}
 }
 \value{
 A tidyverse tibble containing all joined observation data.
@@ -16,7 +16,19 @@ A tidyverse tibble containing all joined observation data.
 This function allows you to join different tibbles containing observation data (usually immediate/annual reporters and/or recent/historic observations). Duplicates are removed.
 }
 \examples{
-# test example
+file_list <- c() # initialize list to wtore all processed files
 
+# iterate through all files
+for(file in dwd_data_list){
+
+# add processing steps for single files here
+
+# add processed file to list of all processed files
+file_list <- c(file_list,my_file)
+
+}
+
+# join files
+file_joined <- dwd_join_files(file_list)
 
 }

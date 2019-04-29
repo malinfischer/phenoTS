@@ -15,7 +15,13 @@ dwd_stations_shp(dwd_data, out_dir)
 This function allows you to save the location of all stations of a dwd data tibble as shape file (with +proj=longlat, +datum=WGS84).
 }
 \examples{
-# test example
+# filter flexibly using dplyr package
+rbu_data <- dplyr::filter(rbu_data,stat_id\%in\%c(11162,11292,11295))
 
+# plot location of selected stations within Germany
+dwd_stations_plot(rbu_data)
+
+# save selected stations as shape-file
+dwd_stations_shp(rbu_data,my_dir)
 
 }

@@ -1,4 +1,4 @@
-#' @title Reading DWD phenological stage info file into R
+#' @title Read DWD phenological stage info file into R
 #'
 #' @description This function allows you to import a DWD phenological stage information meta file into R as a tidyverse tibble.
 #'
@@ -10,8 +10,6 @@
 #'
 #' @export
 #'
-#' @examples
-#' # test example
 #'
 #'
 

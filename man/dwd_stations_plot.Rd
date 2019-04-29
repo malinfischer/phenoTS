@@ -2,7 +2,7 @@
 % Please edit documentation in R/dwd_stations_plot.R
 \name{dwd_stations_plot}
 \alias{dwd_stations_plot}
-\title{Plot DWD stations on Germany map}
+\title{Plot DWD stations within Germany}
 \usage{
 dwd_stations_plot(dwd_data)
 }
@@ -11,9 +11,4 @@ dwd_stations_plot(dwd_data)
 }
 \description{
 This function allows you to plot the location of all stations of a dwd data tibble on a map of Germany.
-}
-\examples{
-# test example
-
-
 }

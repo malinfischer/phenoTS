@@ -2,7 +2,7 @@
 % Please edit documentation in R/dwd_read_station_info.R
 \name{dwd_read_station_info}
 \alias{dwd_read_station_info}
-\title{Reading DWD phenological station info file into R}
+\title{Read DWD phenological station info file into R}
 \usage{
 dwd_read_station_info(dir)
 }
@@ -14,9 +14,4 @@ A tidyverse tibble containing the DWD phenological station info file data.
 }
 \description{
 This function allows you to import a DWD station information meta file into R as a tidyverse tibble.
-}
-\examples{
-# test example
-
-
 }

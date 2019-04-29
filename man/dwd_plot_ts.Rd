@@ -4,7 +4,7 @@
 \alias{dwd_plot_ts}
 \title{Plot one time-series per DWD station}
 \usage{
-dwd_plot_ts(dwd_data, stat_ids, title, subtitle)
+dwd_plot_ts(dwd_data, stat_ids, title)
 }
 \arguments{
 \item{dwd_data}{a tibble containing DWD observation data (pre-processed, with station + phase information) which shall be plotted.}
@@ -12,14 +12,12 @@ dwd_plot_ts(dwd_data, stat_ids, title, subtitle)
 \item{stat_ids}{station ID(s) of station(s) which shall be plotted (optional). If empty, all stations are plotted.}
 
 \item{title}{plot title (optional).}
-
-\item{subtitle}{plot subtitle (optional).}
 }
 \value{
 The resulting time-series ggplot.
 }
 \description{
-This function allows you to plot one time-series per DWD station for an input DWD data set. Specific stations can be filtered beforehand. For other filter operations use ggplot2:filter() to create customized data set. Furthermore, LOESS smoothening (local polynomial regression fitting) is applied.
+This function allows you to plot one time-series per DWD station for an input DWD data set. Specific stations can be filtered beforehand. Furthermore, LOESS smoothening (local polynomial regression fitting) is applied.
 }
 \examples{
 # test example
