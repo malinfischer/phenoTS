@@ -22,6 +22,14 @@ A tibble with calculated mean values per station and layer plus other informatio
 This function allows you to calculate the mean of all pixels within a buffer-zone around points of interest (POIs) for each layer in a raster stack. A tibble with mean values and additional columns with the provided date flags and other information is returned and can be used for forther analysis and plotting.
 }
 \examples{
-# test example
+# load processed data
+ndvi_m_px_1 <- stack(".../phenoTS/example_scripts/MODIS_data_processed/ndvi_m_px_1.tif")
+
+# mean of all pixels in layer within point-buffer (around DWD stations)
+
+dir_shp <- ".../phenoTS/example_scripts/MODIS_data_processed/dwd_stations.shp"
+
+# calculate mean per pixel-buffer
+ndvi_m_1_poi <- ras_calc_mean_points(ndvi_m_px_1,dir_shp=dir_shp,buffer=5000,date_flag=c(2000:2018))
 
 }

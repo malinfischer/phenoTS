@@ -10,8 +10,6 @@
 #'
 #' @export
 #'
-#'
-#'
 
 dwd_read_phase_info <- function(dir){
 

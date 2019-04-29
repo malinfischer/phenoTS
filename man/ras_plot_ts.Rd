@@ -21,8 +21,3 @@ The resulting time-series ggplot.
 \description{
 This function allows you to plot one time-series per scene or extracted points, e.g. the result of ras_calc_mean() or ras_calc_mean_point(). Furthermore, LOESS smoothening (local polynomial regression fitting) is applied.
 }
-\examples{
-# test example
-
-
-}

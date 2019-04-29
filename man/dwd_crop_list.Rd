@@ -12,8 +12,3 @@ A tidyverse tibble containing information on all available crops, their overall 
 \description{
 This function allows you to get and view a list of all crops with available phenological observations by the DWD. Names, overall crop type as well as abbreviation used in other functions are shown.
 }
-\examples{
-# test example
-
-
-}

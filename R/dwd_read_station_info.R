@@ -10,9 +10,6 @@
 #'
 #' @export
 #'
-#'
-#'
-
 dwd_read_station_info <- function(dir){
 
   # define column names

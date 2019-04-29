@@ -14,6 +14,12 @@ library(devtools)
 devtools::install_github("malinfischer/phenoTS")
 library(phenoTS)
 
+## additional packages for this example code
+install.packages("tidyverse")
+install.packages("ggplot2")
+library(tidyverse)
+library(ggplot2)
+
 
 ########## 2. download DWD phenology data ##########
 
@@ -83,6 +89,9 @@ View(rbu_data)
 # create plot
 rbu_plot <- dwd_plot_ts(rbu_data,title="DWD time-series beech foliation")
 
+# save plot
+ggplot2::ggsave("rbu_plot.png",rbu_plot,width=200,height=200,units="mm",path=my_dir)
+
 
 ##### 6. Repeat and plot for other crop type #######
 
@@ -99,9 +108,20 @@ fic_data <- dplyr::filter(fic_data,stat_id%in%c(11162,11292,11295))
 # create single plot
 fic_plot <- dwd_plot_ts(fic_data,title="DWD time-series spruce burst of buds")
 
-# create plot with both crops
+
+### create plot with both crops ###
 rbu_fic_plot <- dwd_plot_2_ts(rbu_data,fic_data,title="DWD time-series beech and spruce",lab_1="beech",lab_2="spruce")
 
+# save plots
+ggplot2::ggsave("fic_plot.png",fic_plot,width=200,height=200,units="mm",path=my_dir)
+ggplot2::ggsave("rbu_fic_plot.png",rbu_fic_plot,width=200,height=200,units="mm",path=my_dir)
 
 
+################# 6. interpretation ################
+# up to the user :-)
+
+# here (broadly): phase entries have shifted to later dates
+# might indicate that vegetation greening starts earlier
+
+# supports results of MODIS NDVI time-series but other kind of information
 

@@ -23,10 +23,5 @@ dwd_plot_2_ts(dwd_data_1, dwd_data_2, stat_ids, title, lab_1, lab_2)
 The resulting time-series ggplot.
 }
 \description{
-This function allows you to plot one time-series per DWD station for two DWD data sets (e.g. two different crops). Specific stations can be filtered beforehand. For other filter operations use ggplot2:filter() to create customized data set. Furthermore, LOESS smoothening (local polynomial regression fitting) is applied.
-}
-\examples{
-# test example
-
-
+This function allows you to plot one time-series per DWD station for two DWD data sets (e.g. two different crops). Specific stations can be filtered beforehand. Furthermore, LOESS smoothening (local polynomial regression fitting) is applied.
 }

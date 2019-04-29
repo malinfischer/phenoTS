@@ -13,10 +13,6 @@
 #'
 #' @export
 #'
-#' @examples
-#' # test example
-#'
-#'
 
 ras_plot_ts <- function(ras_data,title,x_lab,y_lab){
 

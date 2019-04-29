@@ -16,10 +16,6 @@
 #'
 #' @export
 #'
-#' @examples
-#' # test example
-#'
-#'
 
 ras_plot_2_ts <- function(ras_data_1,ras_data_2,title,x_lab,y_lab,lab_1,lab_2){
 

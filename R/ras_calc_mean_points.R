@@ -17,7 +17,15 @@
 #' @export
 #'
 #' @examples
-#' # test example
+#' # load processed data
+#' ndvi_m_px_1 <- stack(".../phenoTS/example_scripts/MODIS_data_processed/ndvi_m_px_1.tif")
+#'
+#' # mean of all pixels in layer within point-buffer (around DWD stations)
+#'
+#' dir_shp <- ".../phenoTS/example_scripts/MODIS_data_processed/dwd_stations.shp"
+#'
+#' # calculate mean per pixel-buffer
+#' ndvi_m_1_poi <- ras_calc_mean_points(ndvi_m_px_1,dir_shp=dir_shp,buffer=5000,date_flag=c(2000:2018))
 #'
 
 ras_calc_mean_points <- function(ras_stack,dir_shp,buffer,date_flag){
@@ -36,7 +44,7 @@ ras_calc_mean_points <- function(ras_stack,dir_shp,buffer,date_flag){
   poi <- rgdal::readOGR(dir_path,file_name,pointDropZ = TRUE,encoding="UTF-8")
 
   # reproject to raster stack's projection
-  poi <- spTransform(poi,CRS(proj4string(ras)))
+  poi <- spTransform(poi,CRS(proj4string(ras_stack)))
 
   # extract station info for table later
   stat_names <- poi$stat_name

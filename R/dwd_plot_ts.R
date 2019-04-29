@@ -13,10 +13,6 @@
 #'
 #' @export
 #'
-#' @examples
-#' # test example
-#'
-#'
 
 dwd_plot_ts <- function(dwd_data,stat_ids,title){
 

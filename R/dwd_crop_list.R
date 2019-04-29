@@ -8,10 +8,6 @@
 #'
 #' @export
 #'
-#' @examples
-#' # test example
-#'
-#'
 
 dwd_crop_list <- function(){
 

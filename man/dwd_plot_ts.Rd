@@ -19,8 +19,3 @@ The resulting time-series ggplot.
 \description{
 This function allows you to plot one time-series per DWD station for an input DWD data set. Specific stations can be filtered beforehand. Furthermore, LOESS smoothening (local polynomial regression fitting) is applied.
 }
-\examples{
-# test example
-
-
-}
