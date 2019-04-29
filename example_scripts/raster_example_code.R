@@ -41,9 +41,6 @@ library(tidyverse)
 ndvi_m_px_1 <- stack(".../phenoTS/example_scripts/MODIS_data_processed/ndvi_m_px_1.tif")
 ndvi_m_px_2 <- stack(".../example_scripts/MODIS_data_processed/ndvi_m_px_2.tif")
 
-ndvi_m_px_1 <- stack("C:/Users/Malin/Documents/Studium/Wuerzburg/phenoTS/example_scripts/MODIS_data_processed/ndvi_m_px_1.tif")
-ndvi_m_px_2 <- stack("C:/Users/Malin/Documents/Studium/Wuerzburg/phenoTS/example_scripts/MODIS_data_processed/ndvi_m_px_2.tif")
-
 
 ###### 4. calculate mean NDVI per point-buffer #####
 
@@ -56,8 +53,6 @@ ndvi_m_2 <- ras_calc_mean(ndvi_m_px_2,date_flag=c(2000:2018))
 # define path to shape file containing points of interest
 # here: DWD stations used in DWD example script, provided in the folder "MODIS_data_processed"
 dir_shp <- ".../phenoTS/example_scripts/MODIS_data_processed/dwd_stations.shp"
-
-dir_shp <- "C:/Users/Malin/Documents/Studium/Wuerzburg/phenoTS/example_scripts/MODIS_data_processed/dwd_stations.shp"
 
 # calculate mean per pixel-buffer of 5km
 ndvi_m_1_poi <- ras_calc_mean_points(ndvi_m_px_1,dir_shp=dir_shp,buffer=5000,date_flag=c(2000:2018))
@@ -93,8 +88,7 @@ plot_2 <- ras_plot_ts(ndvi_m_2_poi,title="MODIS NDVI time-series July",x_lab="ye
 plot_both <- ras_plot_2_ts(ndvi_m_1_poi,ndvi_m_2_poi,title="MODIS NDVI time-series April and July",x_lab="year",y_lab="NDVI",lab_1="April",lab_2="July")
 
 # save plots
-my_dir <- "my_dir" # export destination
-my_dir <- "C:/Users/Malin/Documents/Studium/Wuerzburg/phenoTS/example_scripts/result_plots"
+my_dir <- "my_dir" # define export folder path
 
 ggplot2::ggsave("ndvi_plot_poi_april.png",plot_1,width=200,height=200,units="mm",path=my_dir)
 ggplot2::ggsave("ndvi_plot_poi_july.png",plot_2,width=200,height=200,units="mm",path=my_dir)
@@ -102,6 +96,7 @@ ggplot2::ggsave("ndvi_plots_poi.png",plot_both,width=200,height=200,units="mm",p
 
 
 ################# 6. interpretation ################
+
 # up to the user :-)
 
 # here (broadly): NDVI values have increased, especially during April

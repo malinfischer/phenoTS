@@ -26,9 +26,6 @@ library(ggplot2)
 ## set directory where data files shall be saved
 my_dir <- "C:/Users/.../my_folder"
 
-
-my_dir <- "C:/Users/Malin/Documents/Studium/Wuerzburg/Programming_Geostatistics/R_Pheno_Project/data"
-
 ## check available crops  and their abbreviations
 dwd_crop_list()
 
@@ -118,6 +115,7 @@ ggplot2::ggsave("rbu_fic_plot.png",rbu_fic_plot,width=200,height=200,units="mm",
 
 
 ################# 6. interpretation ################
+
 # up to the user :-)
 
 # here (broadly): phase entries have shifted to later dates
