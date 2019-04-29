@@ -3,43 +3,24 @@
 phenoTS
 =======
 
-The goal of phenoTS is to ...
+This package simplifies time-series analyses based on different types of phenology data. Various functions and scripts to download, process and analyze data from two entirely different data sets are provided: Field records of the German National Meteorological Service's (DWD) observation network and raster remote sensing data (especially MODIS NDVI, but with generalized functions).
 
-Installation
-------------
+### Idea
 
-You can install the released version of phenoTS from [CRAN](https://CRAN.R-project.org) with:
+Vegetation phenology, the timing of periodic life cycle events like first flowering and leafing, provides important information for various disciplines and applications. Their temporal shifts, for example, is a simple yet widely acknowledged indicator for global warming and other environmental changes. It is also relevant to the timing of allergy seasons and cultural events, wildfires, pest outbreakd or invasive species distributions. The measurement of phenology shifts is commonly based on two entirely different yet potentially complimentary methods: in-situ observations and remote sensing. Combining the strengths of both methodologies is a promising approach to improve plant phenology monitoring.
 
-``` r
-install.packages("phenoTS")
-```
+Unfortunately, handling phenological data of different types and formats is often challenging and time-consuming. Thus, the goal of *phenoTS* is to simplify phenological time-series analyses using both types of data input: field observation (points) and remote sensing (raster) data.
 
-Example
--------
+### Installation and Getting Started
 
-This is a basic example which shows you how to solve a common problem:
+You can install the latest version of phenoTS from Github with:
 
 ``` r
-## basic example code
+devtools::install_github("malinfischer/phenoTS")
 ```
 
-What is special about using `README.Rmd` instead of just `README.md`? You can include R chunks like so:
+Have a look at the provided example scripts to get an overview on how to use this package.
 
-``` r
-summary(cars)
-#>      speed           dist       
-#>  Min.   : 4.0   Min.   :  2.00  
-#>  1st Qu.:12.0   1st Qu.: 26.00  
-#>  Median :15.0   Median : 36.00  
-#>  Mean   :15.4   Mean   : 42.98  
-#>  3rd Qu.:19.0   3rd Qu.: 56.00  
-#>  Max.   :25.0   Max.   :120.00
-```
+For a first impression, see this example of a time-series analysis result plot:
 
-You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date.
-
-You can also embed plots, for example:
-
-<img src="man/figures/README-pressure-1.png" width="100%" />
-
-In that case, don't forget to commit and push the resulting figure files, so they display on GitHub!
+![alt text](example_scripts/result_plots/dwd_modis_ex_results.png)
