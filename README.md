@@ -7,11 +7,12 @@ phenoTS
 
 This package simplifies time-series analyses based on different types of phenology data. Various functions and scripts to download, process and analyze data from two entirely different data sets are provided: field records of the German National Meteorological Service's (DWD) observation network and raster remote sensing data (especially MODIS NDVI, but with generalized functions).
 
-### Idea
+### Background
 
-Vegetation phenology, the timing of periodic life cycle events like first flowering and leafing, provides important information for various disciplines and applications. Their temporal shifts, for example, is a simple yet widely acknowledged indicator for global warming and other environmental changes. It is also relevant to the timing of allergy seasons and cultural events, wildfires, pest outbreakd or invasive species distributions. The measurement of phenology shifts is commonly based on two entirely different yet potentially complimentary methods: in-situ observations and remote sensing. Combining the strengths of both methodologies is a promising approach to improve plant phenology monitoring.
+Vegetation phenology, the timing of periodic life cycle events like first flowering and leafing, provides important information for various disciplines and applications. Temporal shifts, for example, are a simple yet widely acknowledged indicator for global warming and other environmental changes. They are also relevant amongst others to the timing of allergy seasons and cultural events, wildfires, pest outbreaks or invasive species distributions.
+The measurement of phenology shifts is commonly based on two entirely different yet potentially complimentary data acquisition methods: in-situ observations (= point data) and remote sensing (= raster data). Combining the strengths of both methodologies is a promising approach to improve plant phenology monitoring.
 
-Unfortunately, handling phenological data of different types and formats is often challenging and time-consuming. Thus, the goal of phenoTS is to simplify phenological time-series analyses using both types of data input: field observation (points) and remote sensing (raster) data.
+Unfortunately, handling phenological data of different types and formats is often challenging and time-consuming. Thus, the goal of phenoTS is to simplify phenological time-series analyses using both of these types of data input. The methods provided focus on the handling of DWD field observation and MODIS NDVI satellite data, but are transferable to other data sets with few modifications as well.
 
 ### Installation and Getting Started
 
