@@ -116,7 +116,7 @@ dwd_stations_shp(rbu_data,my_dir)
 ```{r plot, echo = TRUE, eval = FALSE, results = "hide"}
 rbu_plot <- dwd_plot_ts(rbu_data)
 ```
-```{r plot4, out.width='52%', fig.align='center'}
+```{r plot4, echo=FALSE, out.width='52%', fig.align='center'}
 knitr::include_graphics('example_scripts/result_plots/rbu_plot.png')
 
 ```
@@ -126,7 +126,7 @@ knitr::include_graphics('example_scripts/result_plots/rbu_plot.png')
 rbu_fic_plot <- dwd_plot_2_ts(rbu_data,fic_data)
 
 ```
-```{r plot3, out.width='52%', fig.align='center'}
+```{r plot3, echo=FALSE, out.width='52%', fig.align='center'}
 knitr::include_graphics('example_scripts/result_plots/rbu_fic_plot.png')
 
 ```

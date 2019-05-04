@@ -102,20 +102,12 @@ dwd_stations_shp(rbu_data,my_dir)
 rbu_plot <- dwd_plot_ts(rbu_data)
 ```
 
-``` r
-knitr::include_graphics('example_scripts/result_plots/rbu_plot.png')
-```
-
 <img src="example_scripts/result_plots/rbu_plot.png" width="52%" style="display: block; margin: auto;" />
 
 ###### Plotting time-series results - two crops
 
 ``` r
 rbu_fic_plot <- dwd_plot_2_ts(rbu_data,fic_data)
-```
-
-``` r
-knitr::include_graphics('example_scripts/result_plots/rbu_fic_plot.png')
 ```
 
 <img src="example_scripts/result_plots/rbu_fic_plot.png" width="52%" style="display: block; margin: auto;" />
